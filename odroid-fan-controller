@@ -11,7 +11,7 @@
 
 dir=""
 user="root"
-cmd="/home/odroid/odroid-xu3-fan-control/odroid-xu3-fan-control.sh"
+cmd="/opt/odroid-xu3-fan-control/odroid-xu3-fan-control.sh"
 
 name=`basename $0`
 pid_file="/var/run/$name.pid"

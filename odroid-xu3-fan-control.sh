@@ -62,6 +62,7 @@ while [ true ];
 do
 
   current_max_temp=`cat ${TEMPERATURE_FILE} | cut -d: -f2 | sort -nr | head -1`
+  echo $current_max_temp
   ${DEBUG} && logger -t $LOGGER_NAME "event: read_max; temp: ${current_max_temp}"
 
   new_fan_speed=0
@@ -72,15 +73,15 @@ do
   elif (( ${current_max_temp} >= 68000 )); then
     new_fan_speed=130
   elif (( ${current_max_temp} >= 66000 )); then
-    new_fan_speed=70
+    new_fan_speed=71
   elif (( ${current_max_temp} >= 63000 )); then
-    new_fan_speed=65
-  elif (( ${current_max_temp} >= 60000 )); then
-    new_fan_speed=60
-  elif (( ${current_max_temp} >= 58000 )); then
-    new_fan_speed=50
-  elif (( ${current_max_temp} >= 55000 )); then
-    new_fan_speed=30
+    new_fan_speed=61
+#  elif (( ${current_max_temp} >= 60000 )); then
+#    new_fan_speed=51
+#  elif (( ${current_max_temp} >= 58000 )); then
+#    new_fan_speed=50
+#  elif (( ${current_max_temp} >= 55000 )); then
+#    new_fan_speed=30
   else
     new_fan_speed=2
   fi
